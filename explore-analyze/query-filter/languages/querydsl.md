@@ -179,3 +179,17 @@ Scores calculated for queries in query context are represented as single precisi
 ::::{tip}
 Use query clauses in query context for conditions which should affect the score of matching documents (i.e. how well does the document match), and use all other query clauses in filter context.
 ::::
+the title field contains the word search
+the status field contains the exact word published
+the publish_date field contains a date from 1 jan 2015 onwards.
+
+console
+GET /_search
+{
+  "query": { <1>
+    "bool": { <2>
+      "must": [
+        { "match": { "title":  "search"          }},
+        the query parameter indicates query context
+        the bool and two match clauses are used in query context, which means that they are used 
+        
